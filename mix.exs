@@ -7,7 +7,7 @@ defmodule Pushest.MixProject do
     [
       app: :pushest,
       version: "0.2.2",
-      elixir: "~> 1.6",
+      elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       name: "Pushest",

@@ -49,7 +49,7 @@ defmodule Pushest.Api.Utils do
         "auth_timestamp=#{auth_timestamp}&" <>
         "auth_version=#{@auth_version}&" <> "body_md5=#{frame_md5}"
 
-    auth_signature = :crypto.hmac(:sha256, secret, string_to_sign) |> Base.encode16(case: :lower)
+    auth_signature = :crypto.mac(:hmac, :sha256, secret, string_to_sign) |> Base.encode16(case: :lower)
 
     "/apps/#{app_id}/#{path}?" <>
       "auth_key=#{key}&" <>
