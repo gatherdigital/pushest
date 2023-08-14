@@ -29,7 +29,7 @@ defmodule Pushest.FakeClient do
     GenServer.call(__MODULE__, :reset_presence)
   end
 
-  def open(_domain, _port) do
+  def open(_domain, _port, _opts \\ nil) do
     {:ok, self()}
   end
 

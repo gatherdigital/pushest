@@ -31,7 +31,8 @@ defmodule Pushest.Socket do
   ## ==========================================================================
 
   def init(state = %State{url: %Url{domain: domain, path: path, port: port}}) do
-    {:ok, conn_pid} = @client.open(domain, port)
+    opts = %{protocols: [:http]}
+    {:ok, conn_pid} = @client.open(domain, port, opts)
     Process.monitor(conn_pid)
 
     case @client.await_up(conn_pid) do
